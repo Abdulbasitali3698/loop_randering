@@ -1,12 +1,16 @@
-"use client"
+
+import Button from "../components/button/button"
+import CounterSection from "../components/counterSection/counterSection"
+
 
 export default function Counter(){
-const onClickHandler=()=>{
-    alert("Clicked")
-}
+
     return(
         <div>
-            <button onClick={onClickHandler} style={{backgroundColor:"red"}}>Add</button>
+            <h2>Counter</h2>
+            <CounterSection/>
+            
+            
         </div>
     )
 }
