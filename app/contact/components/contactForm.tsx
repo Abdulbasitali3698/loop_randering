@@ -1,8 +1,15 @@
 "use client"
 
 import { useState } from "react";
+import yup from "yup";
 import DisplayContact from "./displayContact"
 import { contactInfoType, contactType, onChangeEventType } from "@/types/component_types";
+
+
+const contactInfoSchema=yup.object().shape({
+    name:yup.string().required().min(5).max(10)
+
+})
 
 export default function ContactForm(){
  
@@ -16,6 +23,7 @@ export default function ContactForm(){
         phone:0
 
     })
+    const[contactList,setContactList]=useState<contactType[]>([])
 
     const onChangeHandler=(event:onChangeEventType)=>{
         let userDetails={
@@ -24,6 +32,16 @@ export default function ContactForm(){
 
         }
         setContactInfo(userDetails)
+    }
+    const onClickHandler=()=>{
+        let newContactList:contactType[]=[...contactList,contactInfo]
+        setContactList(newContactList)
+        setContactInfo({
+          name:"",
+          email:"",
+          phone:0
+        })
+
     }
         
         
@@ -46,10 +64,10 @@ export default function ContactForm(){
 
 //    }
   
-    const onClickHandler=()=>{
-    alert("clicked")
+  //   const onClickHandler=()=>{
+  //   alert("clicked")
 
-   }
+  //  }
 
     return(
         <>
@@ -110,7 +128,7 @@ export default function ContactForm(){
         Submit
       </button>
     </form>
-    <DisplayContact contactInfo={contactInfo}/>
+    <DisplayContact contactInfo={contactList}/>
     </>
     )
 }
