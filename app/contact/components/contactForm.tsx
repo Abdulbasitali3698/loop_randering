@@ -115,7 +115,7 @@ export default function ContactForm(){
           name="message"
           
           className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-          rows="4"
+          // rows="4"
           required
         /> 
       </div>
@@ -128,7 +128,7 @@ export default function ContactForm(){
         Submit
       </button>
     </form>
-    <DisplayContact contactInfo={contactList}/>
+    <DisplayContact name={contactInfo.name} email={contactInfo.email} phone={contactInfo.phone} />
     </>
     )
 }

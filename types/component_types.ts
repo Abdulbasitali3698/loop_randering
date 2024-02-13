@@ -8,7 +8,8 @@ export type ButtonProps={
 
 export type contactInfoType={
     contactInfo:{name:string;
-    email:string}
+    email:string
+    phone:number}
     
 
 }
